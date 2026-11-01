@@ -1,0 +1,1291 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#08090b">
+<title>ERROR 404 — Monigote TV</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&family=Share+Tech+Mono&display=swap');
+
+:root {
+  --bg: #08090b;
+  --panel: #101216;
+  --panel2: #15191e;
+  --red: #e52d35;
+  --red2: #ff454c;
+  --white: #f1f1f1;
+  --muted: #92969e;
+  --border: rgba(255,255,255,.09);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+  opacity: .12;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 3px,
+    rgba(255,255,255,.045) 4px
+  );
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9;
+  pointer-events: none;
+  opacity: .12;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+::selection {
+  background: var(--red);
+  color: white;
+}
+
+/* PANTALLA DE CARGA */
+
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #050607;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: opacity .8s ease, visibility .8s ease;
+}
+
+.loader.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader-logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(48px, 12vw, 85px);
+  font-weight: 900;
+  letter-spacing: -3px;
+  animation: loaderGlitch 1.4s infinite;
+}
+
+.loader-logo span {
+  color: var(--red);
+}
+
+.loader-text {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  color: var(--red2);
+  letter-spacing: 3px;
+  margin-top: 12px;
+}
+
+.loader-bar {
+  width: 190px;
+  height: 3px;
+  background: #24272b;
+  margin-top: 25px;
+  overflow: hidden;
+}
+
+.loader-progress {
+  height: 100%;
+  width: 0%;
+  background: var(--red);
+  animation: load 1.7s ease forwards;
+}
+
+@keyframes load {
+  to { width: 100%; }
+}
+
+@keyframes loaderGlitch {
+  0%, 90%, 100% { transform: none; }
+  92% { transform: translateX(3px); }
+  94% { transform: translateX(-3px); }
+  96% { transform: skewX(4deg); }
+}
+
+/* FONDO */
+
+.background-grid {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+  background-size: 55px 55px;
+  mask-image: linear-gradient(to bottom, black, transparent 85%);
+}
+
+.ambient {
+  position: fixed;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: rgba(229,45,53,.09);
+  filter: blur(120px);
+  z-index: -1;
+  pointer-events: none;
+  top: 10%;
+  right: -200px;
+}
+
+/* NAVEGACIÓN */
+
+header {
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(8,9,11,.82);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar {
+  max-width: 1250px;
+  margin: auto;
+  height: 76px;
+  padding: 0 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.brand-icon {
+  width: 37px;
+  height: 37px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--red);
+  color: var(--red);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 18px;
+  box-shadow: 0 0 18px rgba(229,45,53,.15);
+}
+
+.brand-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 23px;
+  letter-spacing: 1px;
+}
+
+.brand-name span {
+  color: var(--red);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 27px;
+}
+
+.nav-links a {
+  color: #a6a8ae;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: .3s;
+}
+
+.nav-links a:hover {
+  color: white;
+}
+
+.nav-links a.active {
+  color: var(--red2);
+}
+
+.menu-btn {
+  display: none;
+  color: white;
+  background: transparent;
+  border: 1px solid var(--border);
+  padding: 9px 12px;
+  font-size: 20px;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 100vh;
+  padding: 145px 25px 85px;
+  max-width: 1250px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.hero-content {
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(229,45,53,.35);
+  background: rgba(229,45,53,.07);
+  padding: 9px 13px;
+  color: #ff777d;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--red);
+  border-radius: 50%;
+  box-shadow: 0 0 12px var(--red);
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% { opacity: .2; }
+}
+
+.hero h1 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(75px, 15vw, 165px);
+  font-weight: 900;
+  line-height: .78;
+  letter-spacing: -5px;
+  text-transform: uppercase;
+  position: relative;
+  max-width: 850px;
+}
+
+.hero h1 .red {
+  color: var(--red);
+  display: block;
+}
+
+.hero-description {
+  max-width: 540px;
+  margin-top: 35px;
+  color: #a7a9af;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
+  margin-top: 32px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 15px 23px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: .3s;
+}
+
+.btn-primary {
+  color: white;
+  background: var(--red);
+  border: 1px solid var(--red);
+}
+
+.btn-primary:hover {
+  background: #b91e27;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(229,45,53,.22);
+}
+
+.btn-secondary {
+  color: white;
+  border: 1px solid rgba(255,255,255,.2);
+  background: rgba(255,255,255,.025);
+}
+
+.btn-secondary:hover {
+  border-color: var(--red);
+  color: var(--red2);
+  transform: translateY(-3px);
+}
+
+.hero-bottom {
+  position: absolute;
+  bottom: 35px;
+  left: 25px;
+  right: 25px;
+  display: flex;
+  justify-content: space-between;
+  color: #656a72;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+/* ELEMENTOS DECORATIVOS */
+
+.hero-decoration {
+  position: absolute;
+  right: 4%;
+  top: 27%;
+  width: 310px;
+  height: 310px;
+  border: 1px solid rgba(229,45,53,.2);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  animation: rotate 35s linear infinite;
+}
+
+.hero-decoration::before,
+.hero-decoration::after {
+  content: "";
+  position: absolute;
+  border: 1px solid rgba(229,45,53,.2);
+  border-radius: 50%;
+}
+
+.hero-decoration::before {
+  inset: 25px;
+}
+
+.hero-decoration::after {
+  inset: 60px;
+  border-style: dashed;
+}
+
+.orbit-core {
+  width: 100px;
+  height: 100px;
+  display: grid;
+  place-items: center;
+  background: rgba(229,45,53,.1);
+  border: 1px solid rgba(229,45,53,.5);
+  color: var(--red2);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 25px;
+  box-shadow: 0 0 50px rgba(229,45,53,.13);
+  animation: rotate 35s linear infinite reverse;
+}
+
+@keyframes rotate {
+  to { transform: rotate(360deg); }
+}
+
+/* SECCIONES */
+
+.section {
+  padding: 110px 25px;
+  border-top: 1px solid var(--border);
+}
+
+.container {
+  max-width: 1150px;
+  margin: auto;
+}
+
+.section-tag {
+  color: var(--red2);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  margin-bottom: 17px;
+}
+
+.section-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(42px, 7vw, 75px);
+  line-height: .95;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.section-title span {
+  color: var(--red);
+}
+
+.section-intro {
+  color: var(--muted);
+  max-width: 650px;
+  line-height: 1.8;
+  font-size: 14px;
+  margin-bottom: 45px;
+}
+
+/* SERIE */
+
+.series-layout {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 35px;
+  align-items: stretch;
+}
+
+.series-text {
+  padding: 35px;
+  background: linear-gradient(145deg,#15181d,#0c0e11);
+  border: 1px solid var(--border);
+}
+
+.series-text h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 31px;
+  margin-bottom: 18px;
+}
+
+.series-text p {
+  color: #a3a6ad;
+  font-size: 14px;
+  line-height: 1.9;
+  margin-bottom: 15px;
+}
+
+.system-card {
+  min-height: 310px;
+  background:
+    radial-gradient(circle at center,rgba(229,45,53,.14),transparent 55%),
+    #0d0f12;
+  border: 1px solid rgba(229,45,53,.25);
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  position: relative;
+}
+
+.system-card::after {
+  content: "404";
+  position: absolute;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 180px;
+  font-weight: 900;
+  color: rgba(229,45,53,.055);
+  right: -10px;
+  bottom: -35px;
+}
+
+.system-top {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+}
+
+.system-error {
+  color: var(--red2);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 70px;
+  font-weight: 900;
+  line-height: .9;
+  position: relative;
+  z-index: 1;
+}
+
+.system-caption {
+  color: #777d86;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  line-height: 1.8;
+  position: relative;
+  z-index: 1;
+}
+
+/* EPISODIOS */
+
+.episodes-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 20px;
+}
+
+.episode-card {
+  border: 1px solid var(--border);
+  background: var(--panel);
+  transition: .35s;
+  overflow: hidden;
+}
+
+.episode-card:hover {
+  border-color: rgba(229,45,53,.5);
+  transform: translateY(-6px);
+}
+
+.episode-screen {
+  height: 190px;
+  display: grid;
+  place-items: center;
+  background:
+    repeating-linear-gradient(0deg,transparent 0 3px,rgba(255,255,255,.025) 4px),
+    radial-gradient(circle,rgba(229,45,53,.16),transparent 65%),
+    #08090b;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+
+.episode-screen span {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 65px;
+  font-weight: 900;
+  color: rgba(229,45,53,.75);
+  text-shadow: 0 0 25px rgba(229,45,53,.2);
+}
+
+.play-icon {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(255,255,255,.35);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: white;
+  background: rgba(0,0,0,.45);
+  transition: .3s;
+}
+
+.episode-card:hover .play-icon {
+  background: var(--red);
+  border-color: var(--red);
+  transform: scale(1.1);
+}
+
+.episode-info {
+  padding: 22px;
+}
+
+.episode-number {
+  color: var(--red2);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.episode-info h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 25px;
+  margin: 9px 0;
+}
+
+.episode-info p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* LORE */
+
+.lore-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 17px;
+}
+
+.lore-card {
+  min-height: 230px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  padding: 27px;
+  position: relative;
+  overflow: hidden;
+  transition: .35s;
+}
+
+.lore-card:hover {
+  border-color: rgba(229,45,53,.5);
+  background: #15171c;
+  transform: translateY(-5px);
+}
+
+.lore-number {
+  font-family: 'Share Tech Mono', monospace;
+  color: var(--red);
+  font-size: 12px;
+}
+
+.lore-card h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 27px;
+  margin: 25px 0 12px;
+}
+
+.lore-card p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+/* COMUNIDAD */
+
+.community {
+  background:
+    radial-gradient(ellipse at 50% 100%,rgba(229,45,53,.12),transparent 65%),
+    #0d0f12;
+  text-align: center;
+}
+
+.community .section-intro {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.community-panel {
+  max-width: 700px;
+  margin: auto;
+  padding: 45px 25px;
+  border: 1px solid rgba(229,45,53,.25);
+  background: rgba(10,11,13,.75);
+}
+
+.community-panel h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 37px;
+  margin-bottom: 12px;
+}
+
+.community-panel p {
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 13px;
+  margin-bottom: 25px;
+}
+
+/* PRODUCCIÓN */
+
+.production-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.production-box {
+  padding: 30px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+}
+
+.production-box h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.production-box p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.production-label {
+  color: var(--red2);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  margin-bottom: 13px;
+}
+
+/* FOOTER */
+
+footer {
+  padding: 35px 25px;
+  border-top: 1px solid var(--border);
+  background: #060708;
+}
+
+.footer-content {
+  max-width: 1150px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.footer-brand {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 25px;
+  font-weight: 900;
+}
+
+.footer-brand span {
+  color: var(--red);
+}
+
+.footer-copy {
+  color: #6d727a;
+  font-size: 10px;
+  line-height: 1.8;
+  text-align: right;
+}
+
+/* ANIMACIONES AL SCROLL */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.glitch {
+  animation: textGlitch 5s infinite;
+}
+
+@keyframes textGlitch {
+  0%, 94%, 100% { text-shadow: none; }
+  95% { text-shadow: 3px 0 var(--red), -3px 0 #fff; }
+  96% { text-shadow: -3px 0 var(--red), 3px 0 #fff; }
+  97% { text-shadow: none; }
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 850px) {
+  .hero-decoration {
+    opacity: .25;
+    right: -100px;
+  }
+
+  .series-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .lore-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(max-width: 650px) {
+  .navbar {
+    height: 68px;
+    padding: 0 18px;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 68px;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: rgba(8,9,11,.98);
+    border-bottom: 1px solid var(--border);
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 23px;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .hero {
+    min-height: 90vh;
+    padding: 130px 20px 100px;
+  }
+
+  .hero h1 {
+    letter-spacing: -2px;
+    font-size: clamp(70px, 18vw, 110px);
+  }
+
+  .hero-description {
+    font-size: 13px;
+  }
+
+  .hero-decoration {
+    width: 220px;
+    height: 220px;
+    top: 35%;
+    right: -110px;
+  }
+
+  .hero-bottom {
+    left: 20px;
+    right: 20px;
+    font-size: 8px;
+  }
+
+  .section {
+    padding: 80px 20px;
+  }
+
+  .episodes-grid,
+  .lore-grid,
+  .production-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .series-text {
+    padding: 25px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-copy {
+    text-align: left;
+  }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="loader" id="loader">
+  <div class="loader-logo">ERROR <span>404</span></div>
+  <div class="loader-text">INITIALIZING SYSTEM...</div>
+  <div class="loader-bar"><div class="loader-progress"></div></div>
+</div>
+
+<div class="background-grid"></div>
+<div class="ambient"></div>
+
+<header>
+  <nav class="navbar">
+    <a href="#inicio" class="brand">
+      <div class="brand-icon">404</div>
+      <div class="brand-name">ERROR <span>404</span></div>
+    </a>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">☰</button>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#inicio" class="active">Inicio</a>
+      <a href="#serie">La serie</a>
+      <a href="#episodios">Episodios</a>
+      <a href="#universo">Universo</a>
+      <a href="#comunidad">Comunidad</a>
+      <a href="#produccion">Producción</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+<!-- INICIO -->
+
+<section class="hero" id="inicio">
+  <div class="hero-content">
+    <div class="status">
+      <span class="status-dot"></span>
+      SYSTEM STATUS: COMPROMISED
+    </div>
+
+    <h1 class="glitch">
+      ERROR
+      <span class="red">404</span>
+    </h1>
+
+    <p class="hero-description">
+      El sistema ha colapsado. Una amenaza digital se extiende
+      más allá de todo control. La realidad ya no funciona como debería.
+      Bienvenido al universo de ERROR 404.
+    </p>
+
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#episodios">
+        Explorar episodios <span>↗</span>
+      </a>
+
+      <a class="btn btn-secondary"
+         href="https://youtube.com/@monigotetv-k8j"
+         target="_blank" rel="noopener noreferrer">
+        Canal oficial <span>▶</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-decoration">
+    <div class="orbit-core">404</div>
+  </div>
+
+  <div class="hero-bottom">
+    <span>MONIGOTE TV // ORIGINAL PROJECT</span>
+    <span>PROJECT ID: MN-404</span>
+  </div>
+</section>
+
+<!-- LA SERIE -->
+
+<section class="section" id="serie">
+  <div class="container reveal">
+    <div class="section-tag">01 // INFORMACIÓN DEL PROYECTO</div>
+    <h2 class="section-title">EL SISTEMA <span>HA COLAPSADO.</span></h2>
+
+    <p class="section-intro">
+      Una producción de animación que combina terror industrial,
+      ciencia ficción y una amenaza que pone en peligro todo el sistema.
+    </p>
+
+    <div class="series-layout">
+      <div class="series-text">
+        <h3>¿Qué es ERROR 404?</h3>
+
+        <p>
+          ERROR 404 es una serie de animación ambientada en un
+          universo tecnológico afectado por una misteriosa plaga digital.
+        </p>
+
+        <p>
+          Lo que comenzó como un sistema aparentemente controlado
+          termina convirtiéndose en una situación de emergencia.
+          Los errores se multiplican y las amenazas empiezan a extenderse.
+        </p>
+
+        <p>
+          Cada episodio forma parte de una historia que revela
+          progresivamente los acontecimientos detrás del colapso.
+        </p>
+      </div>
+
+      <div class="system-card">
+        <div class="system-top">
+          <span>MN-404 / MAINFRAME</span>
+          <span>CRITICAL</span>
+        </div>
+
+        <div>
+          <div class="system-error">SYSTEM<br>FAILURE</div>
+          <div class="system-caption">
+            CONNECTION LOST<br>
+            INTEGRITY: UNKNOWN<br>
+            RECOVERY: FAILED
+          </div>
+        </div>
+
+        <div class="system-top">
+          <span>MONIGOTE TV</span>
+          <span>404.ERR</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EPISODIOS -->
+
+<section class="section" id="episodios">
+  <div class="container reveal">
+    <div class="section-tag">02 // CONTENIDO AUDIOVISUAL</div>
+    <h2 class="section-title">REGISTROS <span>DEL SISTEMA.</span></h2>
+
+    <p class="section-intro">
+      Accede al contenido oficial de ERROR 404 y sigue el desarrollo
+      de la historia a través del canal de Monigote TV.
+    </p>
+
+    <div class="episodes-grid">
+      <a class="episode-card"
+         href="https://youtube.com/@monigotetv-k8j"
+         target="_blank" rel="noopener noreferrer">
+
+        <div class="episode-screen">
+          <span>404</span>
+          <div class="play-icon">▶</div>
+        </div>
+
+        <div class="episode-info">
+          <div class="episode-number">OFFICIAL CHANNEL</div>
+          <h3>Contenido oficial</h3>
+          <p>
+            Consulta las publicaciones y episodios disponibles
+            en el canal oficial de Monigote TV.
+          </p>
+        </div>
+      </a>
+
+      <a class="episode-card"
+         href="https://youtube.com/@monigotetv-k8j"
+         target="_blank" rel="noopener noreferrer">
+
+        <div class="episode-screen">
+          <span>MN01</span>
+          <div class="play-icon">↗</div>
+        </div>
+
+        <div class="episode-info">
+          <div class="episode-number">PROJECT UPDATES</div>
+          <h3>Novedades del proyecto</h3>
+          <p>
+            Sigue las actualizaciones y futuras publicaciones
+            relacionadas con la producción.
+          </p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- UNIVERSO -->
+
+<section class="section" id="universo">
+  <div class="container reveal">
+    <div class="section-tag">03 // ARCHIVOS CLASIFICADOS</div>
+    <h2 class="section-title">EL UNIVERSO <span>404.</span></h2>
+
+    <p class="section-intro">
+      Elementos, entidades y acontecimientos que forman parte
+      de la historia de ERROR 404.
+    </p>
+
+    <div class="lore-grid">
+      <article class="lore-card">
+        <div class="lore-number">FILE_001 // MN01</div>
+        <h3>CIENTÍFICO MN01</h3>
+        <p>
+          Una figura vinculada a los acontecimientos del laboratorio
+          y al origen de los sucesos que afectan al sistema.
+        </p>
+      </article>
+
+      <article class="lore-card">
+        <div class="lore-number">FILE_002 // INFECTION</div>
+        <h3>INFECCIÓN SÓNICA</h3>
+        <p>
+          Una amenaza relacionada con la expansión de la infección
+          y el deterioro progresivo del sistema.
+        </p>
+      </article>
+
+      <article class="lore-card">
+        <div class="lore-number">FILE_003 // ENTITIES</div>
+        <h3>GLITCHES</h3>
+        <p>
+          Entidades asociadas al fenómeno digital que altera
+          el funcionamiento del universo de ERROR 404.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- COMUNIDAD -->
+
+<section class="section community" id="comunidad">
+  <div class="container reveal">
+    <div class="section-tag">04 // CONEXIÓN EXTERNA</div>
+    <h2 class="section-title">MANTENTE <span>CONECTADO.</span></h2>
+
+    <p class="section-intro">
+      Sigue los canales oficiales para conocer las novedades,
+      publicaciones y futuros contenidos de ERROR 404.
+    </p>
+
+    <div class="community-panel">
+      <h3>MONIGOTE TV</h3>
+      <p>
+        Accede al canal oficial y descubre el contenido
+        publicado por el equipo de producción.
+      </p>
+
+      <a class="btn btn-primary"
+         href="https://youtube.com/@monigotetv-k8j"
+         target="_blank" rel="noopener noreferrer">
+        Visitar YouTube ↗
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCCIÓN -->
+
+<section class="section" id="produccion">
+  <div class="container reveal">
+    <div class="section-tag">05 // INFORMACIÓN INSTITUCIONAL</div>
+    <h2 class="section-title">PRODUCCIÓN <span>OFICIAL.</span></h2>
+
+    <p class="section-intro">
+      Información sobre la producción y la identidad
+      del proyecto audiovisual.
+    </p>
+
+    <div class="production-grid">
+      <div class="production-box">
+        <div class="production-label">PRODUCTION LABEL</div>
+        <h3>MONIGOTE TV</h3>
+        <p>
+          Sello de producción responsable de presentar
+          el proyecto ERROR 404 y sus contenidos oficiales.
+        </p>
+      </div>
+
+      <div class="production-box">
+        <div class="production-label">PROJECT INFORMATION</div>
+        <h3>ERROR 404</h3>
+        <p>
+          Serie de animación de terror industrial y ciencia ficción.
+          Este sitio reúne información y enlaces oficiales del proyecto.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-content">
+    <div>
+      <div class="footer-brand">ERROR <span>404</span></div>
+      <div style="color:#747981;font-size:10px;margin-top:5px;">
+        AN OFFICIAL MONIGOTE TV PROJECT
+      </div>
+    </div>
+
+    <div class="footer-copy">
+      © <span id="year"></span> MONIGOTE TV<br>
+      ERROR 404 — OFFICIAL PROJECT WEBSITE
+    </div>
+  </div>
+</footer>
+
+<script>
+/* PANTALLA DE CARGA */
+
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    document.getElementById("loader").classList.add("hide");
+  }, 1900);
+});
+
+/* MENÚ MÓVIL */
+
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+  navLinks.classList.toggle("open");
+  menuBtn.textContent = navLinks.classList.contains("open") ? "✕" : "☰";
+});
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    menuBtn.textContent = "☰";
+  });
+});
+
+/* ANIMACIONES AL DESPLAZARSE */
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll(".reveal").forEach(element => {
+  observer.observe(element);
+});
+
+/* AÑO AUTOMÁTICO */
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+/* SECCIÓN ACTIVA EN NAVEGACIÓN */
+
+const sections = document.querySelectorAll("main section[id]");
+const navItems = document.querySelectorAll(".nav-links a");
+
+const sectionObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navItems.forEach(link => {
+        link.classList.toggle(
+          "active",
+          link.getAttribute("href") === "#" + entry.target.id
+        );
+      });
+    }
+  });
+}, { rootMargin: "-35% 0px -55% 0px" });
+
+sections.forEach(section => {
+  sectionObserver.observe(section);
+});
+</script>
+
+</body>
+</html>
