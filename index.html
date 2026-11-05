@@ -5,7 +5,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#08090b">
-<title>ERROR 404 — Monigote TV</title>
+
+<title>Skibidi Colombia | Monigote TV</title>
+
+<meta name="description" content="La web oficial de la saga Skibidi Colombia. Una serie de animación 3D que narra la invasión de los sanitarios mutantes en la capital colombiana. ¡Únete a la resistencia de los agentes mecánicos criollos!">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,10 +18,12 @@
 :root {
   --bg: #08090b;
   --surface: #101216;
-  --surface2: #15181d;
-  --line: #292d34;
-  --red: #e13d3d;
+  --surface2: #171a20;
+  --line: #292e35;
+  --red: #df3939;
   --red-light: #ff6262;
+  --yellow: #f3c943;
+  --blue: #397edb;
   --white: #f1f1ee;
   --muted: #858b94;
   --mono: 'DM Mono', monospace;
@@ -47,7 +52,7 @@ button {
 
 button:focus-visible,
 a:focus-visible {
-  outline: 2px solid var(--red-light);
+  outline: 2px solid var(--yellow);
   outline-offset: 4px;
 }
 
@@ -79,7 +84,7 @@ a:focus-visible {
   height: 650px;
   top: -350px;
   right: -150px;
-  background: radial-gradient(circle, rgba(225,61,61,.12), transparent 70%);
+  background: radial-gradient(circle, rgba(223,57,57,.12), transparent 70%);
   pointer-events: none;
 }
 
@@ -107,7 +112,7 @@ a:focus-visible {
 }
 
 .loading-logo span {
-  color: var(--red);
+  color: var(--yellow);
 }
 
 .loading-bar {
@@ -122,7 +127,7 @@ a:focus-visible {
   display: block;
   height: 100%;
   width: 40%;
-  background: var(--red);
+  background: var(--yellow);
   animation: loading 1.1s infinite ease-in-out;
 }
 
@@ -168,11 +173,11 @@ a:focus-visible {
 .brand-symbol {
   height: 39px;
   width: 39px;
-  border: 1px solid var(--red);
+  border: 1px solid var(--yellow);
   display: grid;
   place-items: center;
   font: 900 19px var(--display);
-  color: var(--red);
+  color: var(--yellow);
 }
 
 .brand-name {
@@ -218,7 +223,7 @@ a:focus-visible {
   left: 11px;
   right: 11px;
   height: 2px;
-  background: var(--red);
+  background: var(--yellow);
 }
 
 .header-status {
@@ -230,7 +235,7 @@ a:focus-visible {
 }
 
 .header-status span {
-  color: var(--red);
+  color: var(--yellow);
 }
 
 .menu-button {
@@ -241,6 +246,7 @@ a:focus-visible {
   background: transparent;
   color: white;
   font-size: 19px;
+  cursor: pointer;
 }
 
 .mobile-navigation {
@@ -277,7 +283,7 @@ a:focus-visible {
 }
 
 .kicker {
-  color: var(--red);
+  color: var(--yellow);
   font: 10px var(--mono);
   letter-spacing: 2.3px;
   margin-bottom: 12px;
@@ -290,7 +296,7 @@ a:focus-visible {
 }
 
 .page-title span {
-  color: var(--red);
+  color: var(--yellow);
 }
 
 .page-description {
@@ -305,7 +311,7 @@ a:focus-visible {
   margin-bottom: 25px;
 }
 
-/* HOME */
+/* INICIO */
 
 .home {
   display: none;
@@ -339,14 +345,14 @@ a:focus-visible {
 .dot {
   width: 7px;
   height: 7px;
-  background: var(--red);
+  background: var(--yellow);
   border-radius: 50%;
-  box-shadow: 0 0 12px var(--red);
+  box-shadow: 0 0 12px var(--yellow);
 }
 
 .hero-title {
-  font: 900 clamp(85px,12vw,155px)/.76 var(--display);
-  letter-spacing: -5px;
+  font: 900 clamp(75px,10.5vw,140px)/.76 var(--display);
+  letter-spacing: -4px;
 }
 
 .hero-title .top {
@@ -355,8 +361,8 @@ a:focus-visible {
 
 .hero-title .bottom {
   display: block;
-  color: var(--red);
-  text-shadow: 5px 5px 0 rgba(225,61,61,.12);
+  color: var(--yellow);
+  text-shadow: 5px 5px 0 rgba(243,201,67,.10);
 }
 
 .hero-description {
@@ -392,17 +398,18 @@ a:focus-visible {
 }
 
 .action.primary {
-  background: var(--red);
-  border-color: var(--red);
+  background: var(--yellow);
+  border-color: var(--yellow);
+  color: #171717;
 }
 
 .action.primary:hover {
-  background: #b82e2e;
+  background: #d6ad31;
 }
 
 .action.secondary:hover {
-  border-color: var(--red);
-  color: var(--red-light);
+  border-color: var(--yellow);
+  color: var(--yellow);
 }
 
 .hero-visual {
@@ -414,7 +421,7 @@ a:focus-visible {
 }
 
 .hero-visual::before {
-  content: "404";
+  content: "SC";
   position: absolute;
   right: -15px;
   top: -30px;
@@ -441,7 +448,7 @@ a:focus-visible {
   border: 1px solid #373c44;
   background:
     repeating-linear-gradient(0deg,transparent 0 3px,rgba(255,255,255,.025) 4px),
-    radial-gradient(circle at center,rgba(225,61,61,.08),transparent 65%),
+    radial-gradient(circle at center,rgba(243,201,67,.08),transparent 65%),
     #090b0e;
   display: flex;
   flex-direction: column;
@@ -454,7 +461,7 @@ a:focus-visible {
   position: absolute;
   width: 150%;
   height: 1px;
-  background: rgba(225,61,61,.35);
+  background: rgba(243,201,67,.35);
   transform: rotate(-32deg);
 }
 
@@ -463,7 +470,7 @@ a:focus-visible {
   position: absolute;
   width: 150%;
   height: 1px;
-  background: rgba(225,61,61,.22);
+  background: rgba(243,201,67,.22);
   transform: rotate(32deg);
 }
 
@@ -471,8 +478,8 @@ a:focus-visible {
   position: relative;
   z-index: 1;
   font: 900 clamp(70px,10vw,120px) var(--display);
-  color: var(--red);
-  text-shadow: 0 0 30px rgba(225,61,61,.4);
+  color: var(--yellow);
+  text-shadow: 0 0 30px rgba(243,201,67,.3);
   animation: flicker 4s infinite;
 }
 
@@ -501,7 +508,7 @@ a:focus-visible {
   98% { opacity: .85; }
 }
 
-/* DASHBOARD */
+/* SERIE */
 
 .dashboard {
   display: grid;
@@ -527,16 +534,16 @@ a:focus-visible {
 }
 
 .feature-panel::after {
-  content: "404";
+  content: "SC";
   position: absolute;
   right: -10px;
   bottom: -65px;
   font: 900 230px var(--display);
-  color: rgba(225,61,61,.04);
+  color: rgba(243,201,67,.04);
 }
 
 .panel-label {
-  color: var(--red);
+  color: var(--yellow);
   font: 9px var(--mono);
   letter-spacing: 2px;
 }
@@ -608,12 +615,12 @@ a:focus-visible {
 }
 
 .card:hover {
-  border-color: #793535;
+  border-color: var(--yellow);
   transform: translateY(-3px);
 }
 
 .card-index {
-  color: var(--red);
+  color: var(--yellow);
   font: 9px var(--mono);
   letter-spacing: 1.5px;
 }
@@ -640,7 +647,7 @@ a:focus-visible {
   letter-spacing: 1px;
 }
 
-/* UNIVERSE */
+/* UNIVERSO */
 
 .universe-grid {
   display: grid;
@@ -663,14 +670,11 @@ a:focus-visible {
 }
 
 .universe-card:hover {
-  border-color: var(--red);
-  background:
-    linear-gradient(180deg,transparent,rgba(0,0,0,.8)),
-    linear-gradient(140deg,#302326,#101216);
+  border-color: var(--yellow);
 }
 
 .universe-symbol {
-  color: rgba(225,61,61,.8);
+  color: rgba(243,201,67,.8);
   font: 900 39px var(--display);
 }
 
@@ -686,7 +690,7 @@ a:focus-visible {
   margin-top: 7px;
 }
 
-/* PRODUCTION */
+/* PRODUCCION */
 
 .production-grid {
   display: grid;
@@ -711,7 +715,7 @@ a:focus-visible {
 }
 
 .production-name span {
-  color: var(--red);
+  color: var(--yellow);
 }
 
 .production-brand p {
@@ -734,7 +738,7 @@ a:focus-visible {
 }
 
 .production-item small {
-  color: var(--red);
+  color: var(--yellow);
   font: 8px var(--mono);
   letter-spacing: 1.5px;
 }
@@ -751,7 +755,7 @@ a:focus-visible {
   margin-top: 7px;
 }
 
-/* CREDITS */
+/* CREDITOS */
 
 .credits-grid {
   display: grid;
@@ -798,7 +802,7 @@ a:focus-visible {
 }
 
 .official-link:hover {
-  border-color: var(--red);
+  border-color: var(--yellow);
   transform: translateX(3px);
 }
 
@@ -815,7 +819,7 @@ a:focus-visible {
 }
 
 .link-arrow {
-  color: var(--red);
+  color: var(--yellow);
   font-size: 19px;
 }
 
@@ -840,7 +844,7 @@ a:focus-visible {
 }
 
 .footer span {
-  color: var(--red);
+  color: var(--yellow);
 }
 
 /* RESPONSIVE */
@@ -891,7 +895,7 @@ a:focus-visible {
   }
 
   .mobile-navigation button.active {
-    border-color: var(--red);
+    border-color: var(--yellow);
     color: white;
   }
 
@@ -914,7 +918,7 @@ a:focus-visible {
   }
 
   .hero-title {
-    font-size: clamp(65px,18vw,100px);
+    font-size: clamp(62px,16vw,95px);
     letter-spacing: -3px;
   }
 
@@ -948,12 +952,21 @@ a:focus-visible {
 
   .screen-number { font-size: 65px; }
   .screen-label { font-size: 7px; }
-  .screen-footer { left: 10px; right: 10px; bottom: 10px; font-size: 6px; }
+  .screen-footer {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    font-size: 6px;
+  }
 
   .section-header { margin-bottom: 14px; }
   .kicker { font-size: 8px; margin-bottom: 8px; }
   .page-title { font-size: 37px; }
-  .page-description { font-size: 10px; line-height: 1.6; margin-top: 8px; }
+  .page-description {
+    font-size: 10px;
+    line-height: 1.6;
+    margin-top: 8px;
+  }
 
   .dashboard {
     display: flex;
@@ -992,7 +1005,11 @@ a:focus-visible {
   .card { padding: 12px; }
   .card h3 { font-size: 19px; margin-top: 11px; }
   .card p { font-size: 9px; line-height: 1.5; }
-  .card-status { font-size: 7px; margin-top: 10px; padding-top: 8px; }
+  .card-status {
+    font-size: 7px;
+    margin-top: 10px;
+    padding-top: 8px;
+  }
 
   .universe-grid {
     grid-template-columns: 1fr 1fr;
@@ -1048,7 +1065,7 @@ a:focus-visible {
 
 @media(max-width:380px) {
   .mobile-navigation { grid-template-columns: repeat(2,1fr); }
-  .hero-title { font-size: 62px; }
+  .hero-title { font-size: 59px; }
   .page-title { font-size: 33px; }
   .hero-description { font-size: 9px; }
   .universe-card { height: 150px; }
@@ -1078,9 +1095,9 @@ a:focus-visible {
 <div class="ambient"></div>
 
 <div class="loading" id="loading">
-  <div class="loading-logo">ERROR <span>404</span></div>
+  <div class="loading-logo">SKIBIDI <span>COLOMBIA</span></div>
   <div class="loading-bar"></div>
-  <div class="loading-text">CARGANDO ENTORNO DIGITAL...</div>
+  <div class="loading-text">INICIALIZANDO SISTEMA DE RESISTENCIA...</div>
 </div>
 
 <div class="app">
@@ -1088,10 +1105,10 @@ a:focus-visible {
 <header class="header">
 
   <div class="brand">
-    <div class="brand-symbol">404</div>
+    <div class="brand-symbol">SC</div>
     <div>
-      <div class="brand-name">MONIGOTE TV</div>
-      <div class="brand-sub">PRODUCCIÓN AUDIOVISUAL</div>
+      <div class="brand-name">SKIBIDI COLOMBIA</div>
+      <div class="brand-sub">MONIGOTE TV · PRODUCCIÓN</div>
     </div>
   </div>
 
@@ -1104,7 +1121,7 @@ a:focus-visible {
     <button class="nav-button" data-page="creditos">CRÉDITOS</button>
   </nav>
 
-  <div class="header-status">ARCHIVO <span>●</span> 404-MTV</div>
+  <div class="header-status">SISTEMA <span>●</span> SC-MTV</div>
 
   <button class="menu-button" id="menuButton" aria-label="Abrir menú">☰</button>
 
@@ -1128,23 +1145,24 @@ a:focus-visible {
 
     <div class="hero-tag">
       <span class="dot"></span>
-      PRODUCCIÓN AUDIOVISUAL ORIGINAL
+      NUEVA PRODUCCIÓN AUDIOVISUAL
     </div>
 
     <h1 class="hero-title">
-      <span class="top">ERROR</span>
-      <span class="bottom">404</span>
+      <span class="top">SKIBIDI</span>
+      <span class="bottom">COLOMBIA</span>
     </h1>
 
     <p class="hero-description">
-      El Sistema ha colapsado. Una anomalía se extiende por los registros
-      digitales y amenaza con alterar todo lo que conocemos.
-      El archivo ya no es seguro.
+      La invasión ha llegado a Colombia. Una amenaza de sanitarios
+      mutantes se extiende por la capital, mientras los agentes
+      mecánicos criollos se preparan para defender la ciudad.
+      ¡La resistencia apenas comienza!
     </p>
 
     <div class="hero-actions">
       <button class="action primary" data-go="serie">
-        DESCUBRIR EL PROYECTO ↗
+        DESCUBRIR LA SERIE ↗
       </button>
       <button class="action secondary" data-go="universo">
         EXPLORAR UNIVERSO
@@ -1156,11 +1174,11 @@ a:focus-visible {
   <div class="hero-visual">
     <div class="screen-frame">
       <div class="screen">
-        <div class="screen-number">404</div>
-        <div class="screen-label">SYSTEM FAILURE</div>
+        <div class="screen-number">SC</div>
+        <div class="screen-label">COLOMBIA UNDER ATTACK</div>
         <div class="screen-footer">
           <span>MONIGOTE TV</span>
-          <span>ARCHIVE / 404</span>
+          <span>ARCHIVE / SC</span>
         </div>
       </div>
     </div>
@@ -1168,16 +1186,16 @@ a:focus-visible {
 
 </section>
 
-<!-- SERIE -->
+<!-- LA SERIE -->
 <section class="page" id="serie">
 
   <div class="section-header">
     <div class="kicker">01 / INFORMACIÓN DEL PROYECTO</div>
     <h1 class="page-title">LA <span>SERIE</span></h1>
     <p class="page-description">
-      Una producción de animación con una identidad visual inspirada
-      en el horror tecnológico, la ciencia ficción y los sistemas
-      digitales fuera de control.
+      Una serie de animación 3D que presenta una invasión de sanitarios
+      mutantes en la capital colombiana y la resistencia de los agentes
+      mecánicos criollos.
     </p>
   </div>
 
@@ -1185,22 +1203,22 @@ a:focus-visible {
 
     <div class="feature-panel">
       <div>
-        <div class="panel-label">EXPEDIENTE / 404-ORIGINAL</div>
-        <h2>EL SISTEMA HA COLAPSADO.</h2>
+        <div class="panel-label">EXPEDIENTE / SC-ORIGINAL</div>
+        <h2>LA INVASIÓN HA LLEGADO A COLOMBIA.</h2>
         <p>
-          Una plaga digital comienza a propagarse y altera el funcionamiento
-          de los sistemas. En medio del caos, los registros de un laboratorio
-          subterráneo esconden información que podría ayudar a comprender
-          el origen de la anomalía.
+          Los sanitarios mutantes amenazan con tomar la capital.
+          En medio del caos, los agentes mecánicos criollos se preparan
+          para defender la ciudad. Una nueva batalla comienza en las
+          calles de Colombia.
         </p>
       </div>
-      <div class="panel-label">ERROR 404 — UNIVERSO NARRATIVO</div>
+      <div class="panel-label">SKIBIDI COLOMBIA — UNIVERSO NARRATIVO</div>
     </div>
 
     <div class="metadata-panel">
       <div class="metadata-row">
         <small>TÍTULO OFICIAL</small>
-        <strong>ERROR 404</strong>
+        <strong>Skibidi Colombia</strong>
       </div>
       <div class="metadata-row">
         <small>PRODUCTORA</small>
@@ -1208,15 +1226,15 @@ a:focus-visible {
       </div>
       <div class="metadata-row">
         <small>FORMATO</small>
-        <strong>Serie de animación</strong>
+        <strong>Serie de animación 3D</strong>
       </div>
       <div class="metadata-row">
         <small>GÉNERO</small>
-        <strong>Ciencia ficción / Horror tecnológico</strong>
+        <strong>Animación / Ciencia ficción</strong>
       </div>
       <div class="metadata-row">
-        <small>TIPO DE PROYECTO</small>
-        <strong>Universo original</strong>
+        <small>AMBIENTACIÓN</small>
+        <strong>Colombia</strong>
       </div>
     </div>
 
@@ -1229,10 +1247,10 @@ a:focus-visible {
 
   <div class="section-header">
     <div class="kicker">02 / ARCHIVO DE CONTENIDO</div>
-    <h1 class="page-title">REGISTRO DE <span>EPISODIOS</span></h1>
+    <h1 class="page-title">ARCHIVO DE <span>EPISODIOS</span></h1>
     <p class="page-description">
-      Archivo de consulta destinado a los capítulos y registros narrativos
-      de ERROR 404.
+      Espacio oficial destinado a los capítulos y registros narrativos
+      de Skibidi Colombia.
     </p>
   </div>
 
@@ -1276,42 +1294,42 @@ a:focus-visible {
     <div class="kicker">03 / BASE DE DATOS NARRATIVA</div>
     <h1 class="page-title">EL <span>UNIVERSO</span></h1>
     <p class="page-description">
-      Elementos, entidades y registros que forman parte del universo
-      narrativo de ERROR 404.
+      Conoce los elementos principales que conforman el universo
+      de Skibidi Colombia.
     </p>
   </div>
 
   <div class="universe-grid">
 
     <article class="universe-card">
-      <div class="universe-symbol">⌘</div>
+      <div class="universe-symbol">▣</div>
       <div>
-        <h3>EL LABORATORIO</h3>
-        <p>Una instalación subterránea vinculada a los registros del sistema.</p>
-      </div>
-    </article>
-
-    <article class="universe-card">
-      <div class="universe-symbol">MN</div>
-      <div>
-        <h3>SCIENTIST MN01</h3>
-        <p>Una figura científica relacionada con los archivos del proyecto.</p>
+        <h3>SANITARIOS</h3>
+        <p>Los sanitarios mutantes que forman parte de la invasión.</p>
       </div>
     </article>
 
     <article class="universe-card">
       <div class="universe-symbol">◉</div>
       <div>
-        <h3>LA INFECCIÓN</h3>
-        <p>Una anomalía de origen sónico que afecta al entorno digital.</p>
+        <h3>AGENTES</h3>
+        <p>Los agentes mecánicos que integran la resistencia.</p>
       </div>
     </article>
 
     <article class="universe-card">
-      <div class="universe-symbol">404</div>
+      <div class="universe-symbol">CO</div>
       <div>
-        <h3>GLITCHES</h3>
-        <p>Entidades y alteraciones asociadas al colapso del sistema.</p>
+        <h3>COLOMBIA</h3>
+        <p>La capital colombiana como escenario de la historia.</p>
+      </div>
+    </article>
+
+    <article class="universe-card">
+      <div class="universe-symbol">SC</div>
+      <div>
+        <h3>RESISTENCIA</h3>
+        <p>La lucha por defender la ciudad frente a la invasión.</p>
       </div>
     </article>
 
@@ -1326,8 +1344,8 @@ a:focus-visible {
     <div class="kicker">04 / IDENTIDAD Y DESARROLLO</div>
     <h1 class="page-title">PRODUCCIÓN <span>AUDIOVISUAL</span></h1>
     <p class="page-description">
-      Monigote TV presenta un proyecto original construido alrededor
-      de una identidad narrativa y visual propia.
+      Monigote TV presenta Skibidi Colombia, una producción de animación
+      3D ambientada en una versión ficticia de Colombia.
     </p>
   </div>
 
@@ -1348,8 +1366,8 @@ a:focus-visible {
 
       <article class="production-item">
         <small>ÁREA 01</small>
-        <h3>ANIMACIÓN</h3>
-        <p>Desarrollo de una propuesta visual propia para la serie.</p>
+        <h3>ANIMACIÓN 3D</h3>
+        <p>Desarrollo de una propuesta visual tridimensional.</p>
       </article>
 
       <article class="production-item">
@@ -1383,7 +1401,7 @@ a:focus-visible {
     <h1 class="page-title">CRÉDITOS Y <span>ENLACES</span></h1>
     <p class="page-description">
       Canales oficiales y espacios digitales relacionados con
-      la producción de ERROR 404.
+      Skibidi Colombia.
     </p>
   </div>
 
@@ -1393,13 +1411,14 @@ a:focus-visible {
       <div class="panel-label">PRODUCCIÓN ORIGINAL</div>
       <h2>MONIGOTE TV</h2>
       <p>
-        ERROR 404 es un proyecto audiovisual original presentado
+        Skibidi Colombia es una producción audiovisual presentada
         por Monigote TV. Esta plataforma reúne información general
         de la serie y sus espacios oficiales.
       </p>
       <p>
-        <strong>Proyecto:</strong> ERROR 404<br>
-        <strong>Producción:</strong> Monigote TV
+        <strong>Proyecto:</strong> Skibidi Colombia<br>
+        <strong>Producción:</strong> Monigote TV<br>
+        <strong>Formato:</strong> Animación 3D
       </p>
     </div>
 
@@ -1436,8 +1455,8 @@ a:focus-visible {
 </main>
 
 <footer class="footer">
-  <div><strong>MONIGOTE TV</strong> · ERROR 404</div>
-  <div>ARCHIVO DIGITAL <span>●</span> SISTEMA ACTIVO</div>
+  <div><strong>MONIGOTE TV</strong> · SKIBIDI COLOMBIA</div>
+  <div>RESISTENCIA <span>●</span> SISTEMA ACTIVO</div>
 </footer>
 
 </div>
