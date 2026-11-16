@@ -7,7 +7,6 @@
 <meta name="theme-color" content="#08090b">
 
 <title>Skibidi Colombia | Monigote TV</title>
-
 <meta name="description" content="La web oficial de la saga Skibidi Colombia. Una serie de animación 3D que narra la invasión de los sanitarios mutantes en la capital colombiana. ¡Únete a la resistencia de los agentes mecánicos criollos!">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -595,7 +594,7 @@ a:focus-visible {
   font-weight: 600;
 }
 
-/* CARDS */
+/* TARJETAS */
 
 .card-grid {
   display: grid;
@@ -645,6 +644,19 @@ a:focus-visible {
   color: #9ba0a7;
   font: 8px var(--mono);
   letter-spacing: 1px;
+}
+
+.episode-link {
+  color: var(--yellow);
+  text-decoration: none;
+  font: 800 10px var(--font);
+  letter-spacing: 1px;
+  display: inline-block;
+  transition: .2s;
+}
+
+.episode-link:hover {
+  color: white;
 }
 
 /* UNIVERSO */
@@ -1246,41 +1258,33 @@ a:focus-visible {
 <section class="page" id="episodios">
 
   <div class="section-header">
-    <div class="kicker">02 / ARCHIVO DE CONTENIDO</div>
-    <h1 class="page-title">ARCHIVO DE <span>EPISODIOS</span></h1>
+    <div class="kicker">02 / EPISODIOS OFICIALES</div>
+    <h1 class="page-title">EPISODIO <span>1</span></h1>
     <p class="page-description">
-      Espacio oficial destinado a los capítulos y registros narrativos
-      de Skibidi Colombia.
+      Mira el primer episodio de Skibidi Colombia.
     </p>
   </div>
 
   <div class="card-grid">
 
     <article class="card">
-      <div class="card-index">ARCHIVO 001</div>
-      <div>
-        <h3>REGISTRO 001</h3>
-        <p>Ficha reservada para la información oficial del primer capítulo.</p>
-      </div>
-      <div class="card-status">INFORMACIÓN PENDIENTE</div>
-    </article>
+      <div class="card-index">SKIBIDI COLOMBIA</div>
 
-    <article class="card">
-      <div class="card-index">ARCHIVO 002</div>
       <div>
-        <h3>REGISTRO 002</h3>
-        <p>Espacio destinado a los datos narrativos de la producción.</p>
+        <h3>EPISODIO 1</h3>
+        <p>Primer episodio de la serie.</p>
       </div>
-      <div class="card-status">INFORMACIÓN PENDIENTE</div>
-    </article>
 
-    <article class="card">
-      <div class="card-index">ARCHIVO 003</div>
-      <div>
-        <h3>REGISTRO 003</h3>
-        <p>Archivo reservado para futuras publicaciones oficiales.</p>
+      <div class="card-status">
+        <a
+          class="episode-link"
+          href="https://youtu.be/0PfVcd2bZsA?si=aZyaP84qX6t2Mmmx"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          VER EPISODIO ↗
+        </a>
       </div>
-      <div class="card-status">INFORMACIÓN PENDIENTE</div>
     </article>
 
   </div>
